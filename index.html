@@ -67,26 +67,48 @@
 </head>
 <body>
 
-<h1>Will you be mine forever? 💖</h1>
+<h1 id="question">Will you be mine forever? 💖</h1>
 <div class="hearts">💞 💘 💝 💖 💓 💗 💕</div>
 
 <div class="btn-container">
     <button class="yes-btn" onclick="sayYes()">Yes 💕</button>
-    <button class="no-btn" id="noBtn" onmouseover="moveNo()">No 😜</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveNo()" onclick="changeQuestion()">No 😜</button>
 </div>
 
 <div class="gif hidden" id="loveGif">
     <h2>Yayyy! I knew it 😍❤️</h2>
-    <img src="https://media.giphy.com/media/l0MYu5JMpP4Gz7YgI/giphy.gif" alt="Love Gif" width="300">
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love Gif" width="300">
 </div>
 
 <script>
     const noBtn = document.getElementById('noBtn');
+    const questionEl = document.getElementById('question');
+
+    const questions = [
+        "Are you sure? 🥺",
+        "But I’ll be sad 😢",
+        "Think again, cutie 💘",
+        "You have no escape 😈",
+        "Come on, say yes! 😍",
+        "Last chance! 💌"
+    ];
+    let qIndex = 0;
+
     function moveNo() {
         const x = Math.random() * 300 - 150;
         const y = Math.random() * 150 - 75;
         noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
+
+    function changeQuestion() {
+        if (qIndex < questions.length) {
+            questionEl.textContent = questions[qIndex];
+            qIndex++;
+        } else {
+            questionEl.textContent = "Okay fine, you’re mine forever 💖";
+        }
+    }
+
     function sayYes() {
         document.querySelector('.btn-container').classList.add('hidden');
         document.getElementById('loveGif').classList.remove('hidden');
