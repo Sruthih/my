@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be mine chlm </title>
+<title>Be mine chlm</title>
 
 <!-- Cute Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -27,12 +27,17 @@
     h1 {
         font-size: 2.5rem;
         margin-top: 40px;
-        animation: slideIn 1s ease-out;
     }
-    @keyframes slideIn {
-        from {transform: translateY(-40px); opacity: 0;}
-        to {transform: translateY(0); opacity: 1;}
-    }
+    .slide-left { animation: slideLeft 0.5s ease forwards; }
+    .slide-right { animation: slideRight 0.5s ease forwards; }
+    .slide-top { animation: slideTop 0.5s ease forwards; }
+    .slide-bottom { animation: slideBottom 0.5s ease forwards; }
+
+    @keyframes slideLeft { from {transform: translateX(-100%);} to {transform: translateX(0);} }
+    @keyframes slideRight { from {transform: translateX(100%);} to {transform: translateX(0);} }
+    @keyframes slideTop { from {transform: translateY(-100%);} to {transform: translateY(0);} }
+    @keyframes slideBottom { from {transform: translateY(100%);} to {transform: translateY(0);} }
+
     .hearts {
         font-size: 1.8rem;
         animation: float 2s infinite ease-in-out;
@@ -45,11 +50,6 @@
         margin-top: 50px;
         position: relative;
         height: 150px;
-        animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
     }
     button {
         padding: 12px 25px;
@@ -59,11 +59,6 @@
         cursor: pointer;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         font-family: 'Pacifico', cursive;
-        animation: buttonFloat 3s infinite ease-in-out;
-    }
-    @keyframes buttonFloat {
-        0%, 100% {transform: translateY(0);}
-        50% {transform: translateY(-5px);}
     }
     .yes-btn {
         background-color: #ff1493;
@@ -143,6 +138,9 @@
 
     function changeQuestion() {
         if (qIndex < questions.length) {
+            const animations = ["slide-left", "slide-right", "slide-top", "slide-bottom"];
+            const chosenAnim = animations[Math.floor(Math.random() * animations.length)];
+            questionEl.className = chosenAnim;
             questionEl.textContent = questions[qIndex];
             qIndex++;
         } else {
@@ -151,8 +149,18 @@
     }
 
     function sayYes() {
+        let index = 0;
         document.querySelector('.btn-container').classList.add('hidden');
-        document.getElementById('loveGif').classList.remove('hidden');
+
+        const yesInterval = setInterval(() => {
+            if (index < questions.length) {
+                questionEl.textContent = questions[index];
+                index++;
+            } else {
+                clearInterval(yesInterval);
+                document.getElementById('loveGif').classList.remove('hidden');
+            }
+        }, 1000); // 1 second per statement
     }
 </script>
 
