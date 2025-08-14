@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine 💌</title>
+<title>Be mine chlm </title>
+
+<!-- Cute Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
     body {
         margin: 0;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-family: 'Pacifico', cursive;
         text-align: center;
         background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ffc0cb);
         background-size: 400% 400%;
         animation: gradient 6s ease infinite;
         color: #fff;
+        overflow-x: hidden;
     }
     @keyframes gradient {
         0% {background-position: 0% 50%;}
@@ -20,11 +25,16 @@
         100% {background-position: 0% 50%;}
     }
     h1 {
-        font-size: 3rem;
-        margin-top: 50px;
+        font-size: 2.5rem;
+        margin-top: 40px;
+        animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+        from {transform: translateY(-40px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
     }
     .hearts {
-        font-size: 2rem;
+        font-size: 1.8rem;
         animation: float 2s infinite ease-in-out;
     }
     @keyframes float {
@@ -35,14 +45,25 @@
         margin-top: 50px;
         position: relative;
         height: 150px;
+        animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
     }
     button {
-        padding: 15px 30px;
-        font-size: 1.5rem;
+        padding: 12px 25px;
+        font-size: 1.2rem;
         border: none;
         border-radius: 25px;
         cursor: pointer;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        font-family: 'Pacifico', cursive;
+        animation: buttonFloat 3s infinite ease-in-out;
+    }
+    @keyframes buttonFloat {
+        0%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-5px);}
     }
     .yes-btn {
         background-color: #ff1493;
@@ -62,6 +83,12 @@
     }
     .gif {
         margin-top: 30px;
+        animation: bounceIn 1s ease;
+    }
+    @keyframes bounceIn {
+        0% {transform: scale(0.5); opacity: 0;}
+        60% {transform: scale(1.1); opacity: 1;}
+        100% {transform: scale(1);}
     }
 </style>
 </head>
@@ -72,7 +99,7 @@
 
 <div class="btn-container">
     <button class="yes-btn" onclick="sayYes()">Aama 💕</button>
-    <button class="no-btn" id="noBtn" onmouseover="moveNo()" onclick="changeQuestion()">Illa</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveNo()" onclick="changeQuestion()">Illa maaten</button>
 </div>
 
 <div class="gif hidden" id="loveGif">
@@ -90,7 +117,21 @@
         "I love you chlm💘",
         "En boyfriend aa irukiyaaa chlmm😈",
         "Cheri evlo thadava illa click pannuva😍",
-        "I love you more than you know machaa💌"
+        "I love you more than you know machaa💌",
+        "Oii chlm i love youu da",
+        "Pookie machii yess solle",
+        "Give up panna maaten da",
+        "Nee yess sollu naama night fullaa ps5 vilayadalam",
+        "Nee yess solle better mooka jokes ku updgrade agidren",
+        "Sachh mein pyaar machaa",
+        "Kasam se pyaar karthi hoon",
+        "Machaa ummaaa yess sollee",
+        "Chlo nee illama kashtam da",
+        "Nee thaa manasula epome",
+        "Vaseegaraaa En nenjinika un ponmadiyil thoonginaal podhum adhee ganam",
+        "Enna analum pesama irukadha da",
+        "Road smooth aa iruka enna pannanum nu sollu na panren",
+        "vitutu pogatha chlm, i love youuu"       
     ];
     let qIndex = 0;
 
