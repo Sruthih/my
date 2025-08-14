@@ -1,97 +1,97 @@
-!DOCTYPE html
-html lang=en
-head
-meta charset=UTF-8
-meta name=viewport content=width=device-width, initial-scale=1.0
-titleBe My Valentine 💌title
-style
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💌</title>
+<style>
     body {
-        margin 0;
-        font-family 'Comic Sans MS', cursive, sans-serif;
-        text-align center;
-        background linear-gradient(135deg, #ffb6c1, #ff69b4, #ffc0cb);
-        background-size 400% 400%;
-        animation gradient 6s ease infinite;
-        color #fff;
+        margin: 0;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+        background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ffc0cb);
+        background-size: 400% 400%;
+        animation: gradient 6s ease infinite;
+        color: #fff;
     }
     @keyframes gradient {
-        0% {background-position 0% 50%;}
-        50% {background-position 100% 50%;}
-        100% {background-position 0% 50%;}
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
     }
     h1 {
-        font-size 3rem;
-        margin-top 50px;
+        font-size: 3rem;
+        margin-top: 50px;
     }
     .hearts {
-        font-size 2rem;
-        animation float 2s infinite ease-in-out;
+        font-size: 2rem;
+        animation: float 2s infinite ease-in-out;
     }
     @keyframes float {
-        0%, 100% { transform translateY(0); }
-        50% { transform translateY(-10px); }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
     .btn-container {
-        margin-top 50px;
-        position relative;
-        height 150px;
+        margin-top: 50px;
+        position: relative;
+        height: 150px;
     }
     button {
-        padding 15px 30px;
-        font-size 1.5rem;
-        border none;
-        border-radius 25px;
-        cursor pointer;
-        box-shadow 0 5px 15px rgba(0,0,0,0.2);
+        padding: 15px 30px;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     .yes-btn {
-        background-color #ff1493;
-        color white;
-        transition transform 0.2s;
+        background-color: #ff1493;
+        color: white;
+        transition: transform 0.2s;
     }
-    .yes-btnhover {
-        transform scale(1.1);
+    .yes-btn:hover {
+        transform: scale(1.1);
     }
     .no-btn {
-        background-color #ff6f91;
-        color white;
-        position absolute;
+        background-color: #ff6f91;
+        color: white;
+        position: absolute;
     }
     .hidden {
-        display none;
+        display: none;
     }
     .gif {
-        margin-top 30px;
+        margin-top: 30px;
     }
-style
-head
-body
+</style>
+</head>
+<body>
 
-h1Will you be mine forever 💖h1
-div class=hearts💞 💘 💝 💖 💓 💗 💕div
+<h1>Will you be mine forever? 💖</h1>
+<div class="hearts">💞 💘 💝 💖 💓 💗 💕</div>
 
-div class=btn-container
-    button class=yes-btn onclick=sayYes()Yes 💕button
-    button class=no-btn id=noBtn onmouseover=moveNo()No 😜button
-div
+<div class="btn-container">
+    <button class="yes-btn" onclick="sayYes()">Yes 💕</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveNo()">No 😜</button>
+</div>
 
-div class=gif hidden id=loveGif
-    h2Yayyy! I knew it 😍❤️h2
-    img src=httpsmedia.giphy.commedial0MYu5JMpP4Gz7YgIgiphy.gif alt=Love Gif width=300
-div
+<div class="gif hidden" id="loveGif">
+    <h2>Yayyy! I knew it 😍❤️</h2>
+    <img src="https://media.giphy.com/media/l0MYu5JMpP4Gz7YgI/giphy.gif" alt="Love Gif" width="300">
+</div>
 
-script
+<script>
     const noBtn = document.getElementById('noBtn');
     function moveNo() {
-        const x = Math.random()  300 - 150;
-        const y = Math.random()  150 - 75;
+        const x = Math.random() * 300 - 150;
+        const y = Math.random() * 150 - 75;
         noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
     function sayYes() {
         document.querySelector('.btn-container').classList.add('hidden');
         document.getElementById('loveGif').classList.remove('hidden');
     }
-script
+</script>
 
-body
-html
+</body>
+</html>
